@@ -1,6 +1,6 @@
 # My Ignore List
 *private.*
-*.sublime-workspace
+*.sublime-*
 ~$*
 
 # Byte-compiled / optimized / DLL files

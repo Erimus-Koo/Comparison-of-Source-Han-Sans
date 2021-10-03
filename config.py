@@ -6,11 +6,12 @@ import os
 
 # ═══════════════════════════════════════════════
 if os.name == 'nt':
-    FONT_ROOT = 'D:/References/Fonts/Chinese/All/'
+    FONT_ROOT = 'D:/'
 else:
-    FONT_ROOT = '/Users/erimus/OneDrive/21MoSeeker/01公用素材/font'
+    FONT_ROOT = '/Users/erimus/'
+FONT_ROOT += 'OneDrive/21MoSeeker/01公用素材/font/PPT 标准字体'
 PINGFANG = os.path.join(FONT_ROOT, 'PingFang.ttc')
-SOURCE_HAN = os.path.join(FONT_ROOT, 'SourceHanSans 思源黑体 2.002.ttc')
+SOURCE_HAN = os.path.join(FONT_ROOT, 'SourceHanSans 思源黑体 2.004r.ttc')
 MSYH = os.path.join(FONT_ROOT, '微软雅黑/msyh.ttc')
 # ═══════════════════════════════════════════════
 HERE = os.path.abspath(os.path.dirname(__file__))

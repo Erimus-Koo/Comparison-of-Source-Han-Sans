@@ -3,7 +3,7 @@
 __author__ = 'Erimus'
 
 from PIL import Image, ImageFont, ImageDraw
-from .config import *
+from config import *
 
 # ═══════════════════════════════════════════════
 here = os.path.abspath(os.path.dirname(__file__))
@@ -14,6 +14,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 大部分字体vertical height（不等于行高）大于宽度，
 所以要先贴到长方形的图里，再切掉上下多余的部分。
 '''
+
+
 def character_to_image(text, path='', size=16,
                        font=None,         # 批量处理时直接传入font避免重复解析
                        font_file=None,    # 字体文件

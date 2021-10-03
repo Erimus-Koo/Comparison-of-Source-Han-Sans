@@ -4,8 +4,8 @@ __author__ = 'Erimus'
 # 比较思源黑体各地区字体的字型差异
 
 import numpy as np
-from .character_to_image import character_to_image, ImageFont
-from .config import *
+from character_to_image import character_to_image, ImageFont
+from config import *
 
 # ═══════════════════════════════════════════════
 here = os.path.abspath(os.path.dirname(__file__))
@@ -25,7 +25,7 @@ def find_difference(text, size, font_list):
             data_list = np.vstack((data_list, img_data))
     # print(f'{data_list = }')
 
-    # 比较各位置的差异
+    # 比较各像素点的差异
     # print(f'{img_data_len = }')
     diff = []  # 所有数据的平均差记录容器
     medians = np.zeros(data_list.shape[1])
@@ -39,14 +39,15 @@ def find_difference(text, size, font_list):
 
     # diff_list 各字体的list和平均(中间)值的差异 用来表示哪个字型差异较大
     diff_list = abs(data_list - medians) / 255  # 行：图，列：像素
+    # 取各字体的图的各像素和中间值的差异，取平均，表示和[大众]的区别程度
+    diff_list = [f'{np.mean(img_diff):.3f}' for img_diff in diff_list]
 
     diff = np.mean(diff)  # 各像素点标准差的平均数 表示各字体的整体差异情况
     # print(f'{text}: {diff}')
 
     # 导出格式为excel 字（含字体），差异量
-    row = ([text, f'{diff:.2f}']
-           + [f'{np.mean(img_diff):.3f}' for img_diff in diff_list])
-    print(f'{row = }')
+    row = [text, f'{diff:.2f}'] + diff_list
+    # print(f'{row = }')
     return row
 
 

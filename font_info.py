@@ -10,7 +10,7 @@ ttc字体含多个字体，需要识别包含的字体。
 '''
 
 from fontTools.ttLib import TTFont, TTLibError
-from .config import *
+from config import *
 
 # ═══════════════════════════════════════════════
 
